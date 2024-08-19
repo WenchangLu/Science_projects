@@ -1,0 +1,47 @@
+description="H2O.xyz"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="72 72 72"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="TDDFT "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "True"  
+tddft_steps = "2000"  
+tddft_time_step = "0.200000"  
+electric_field_magnitude = "0.001000"  
+electric_field_vector = "1  0  0"  
+restart_tddft = "False"  
+unoccupied_states_per_kpoint = "100"  
+unoccupied_tol_factor = "1.000000"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh = "1 1 1"  
+kpoint_is_shift = "0 0 0"  
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Orthorhombic Primitive"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+a_length="     12.00000000"  
+b_length="     12.00000000"  
+c_length="     12.00000000"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+O  6.000000000000e+00 6.000000000000e+00 5.707650000000e+00  1 1 1   0.00   0.00   0.00  
+H  6.000000000000e+00 6.760000000000e+00 6.292350000000e+00  1 1 1   0.00   0.00   0.00  
+H  6.000000000000e+00 5.240000000000e+00 6.292350000000e+00  1 1 1   0.00   0.00   0.00  
+"  
