@@ -13,7 +13,7 @@ else:
     
 damping_exp = 1.0/100.0
 #damping_exp = 0.0/100.0
-n_pad = 50000
+n_pad = 0
 all_lines = f.readlines()
 f.close
 
