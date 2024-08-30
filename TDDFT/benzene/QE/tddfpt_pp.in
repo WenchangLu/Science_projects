@@ -4,7 +4,7 @@
    itermax0 = 500,
    itermax  = 10000,
    extrapolation = "osc",
-   epsil = 0.01,
+   epsil = 0.02,
    start = 0.00,
    end   = 3.50,
    increment = 0.001,
