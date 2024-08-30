@@ -1,0 +1,58 @@
+description="init.xyz"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="120 120 100"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="TDDFT "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "True"  
+tddft_steps = "2000"  
+tddft_time_step = "1.000000"  
+#electric field in unit of Hatree/bohr  
+electric_field_tddft = "0.001  0.0  0.0"  
+tddft_start_state = "0"  
+unoccupied_states_per_kpoint = "250"  
+unoccupied_tol_factor = "1.000000"  
+restart_tddft = "False"  
+tddft_noscf = "False"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh = "1 1 1"  
+kpoint_is_shift = "0 0 0"  
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "nc_accuracy"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Orthorhombic Primitive"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+a_length="     19.05037200"  
+b_length="     19.05037200"  
+c_length="     15.87531000"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+C  9.525186000020e+00 1.092790599991e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  9.525186000020e+00 1.201547600001e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+C  8.310396000010e+00 1.022654599992e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  7.368526000040e+00 1.077033599991e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+C  8.310396000010e+00 8.823825999985e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  7.368526000040e+00 8.280035999995e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+C  9.525186000020e+00 8.122465999945e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  9.525186000020e+00 7.034895999985e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+C  1.073997600006e+01 8.823825999985e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  1.168184599996e+01 8.280035999995e+00 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+C  1.073997600006e+01 1.022654599992e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+H  1.168184599996e+01 1.077033599991e+01 7.937655000000e+00  1 1 1   0.00   0.00   0.00  
+"  
