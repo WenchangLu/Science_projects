@@ -11,7 +11,7 @@ if len(sys.argv) >1:
 else:
     f = open('dipole.dat_input.00','r')
     
-damping_exp = 1.0/100.0
+damping_exp = 0.0/100.0
 #damping_exp = 0.0/100.0
 n_pad = 0
 all_lines = f.readlines()
@@ -78,7 +78,7 @@ for col_pick in range(1,4):
           print(angle)
           raise Exception ("atan2 out of range")
         fw[i] = r * math.cos(angle) + r*math.sin(angle) * 1j
-        if x[i] < 5.0:
+        if x[i] < 15.0:
             fout.write("%f  %f\n"%(x[i], fw[i].imag))
     fout.write("&\n")
         
