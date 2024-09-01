@@ -1,0 +1,77 @@
+ Warning: Only a single CPU will be used!
+
+     Program TDDFPT_PP v.7.3.1 starts on 31Aug2024 at 20:14:13 
+        Git branch: develop
+        Last git commit: de3035747f5d8f2ec9a67869827341ebb43f5b12
+        Last git commit date: Tue May 7 11:03:11 2024 +0000
+        Last git commit subject: Merge branch 'LR_Modules-ZGEMM' into 'develop'
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org", 
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Parallel version (MPI), running on    32 processors
+
+     MPI processes distributed on     1 nodes
+     R & G space division:  proc/nbgrp/npool/nimage =      32
+     226522 MiB available memory on the printing compute node when the environment starts
+
+
+     Reading   5000 Lanczos steps for direction 1
+       5000 steps will be considered
+
+
+     Reading   5000 Lanczos steps for direction 2
+       5000 steps will be considered
+
+
+     Reading   5000 Lanczos steps for direction 3
+       5000 steps will be considered
+
+
+     Polarization direction:1
+     Lanczos coefficients:
+     Average =    25.88400282
+     Average oscillation amplitude =     0.10242885
+
+     Polarization direction:2
+     Lanczos coefficients:
+     Average =    25.88408678
+     Average oscillation amplitude =     0.10275716
+
+     Polarization direction:3
+     Lanczos coefficients:
+     Average =    25.88403375
+     Average oscillation amplitude =     0.10308499
+
+     Data ready, starting to calculate observables...
+
+     Broadening =      0.00500000 Ry
+
+     Output file name: C60.plot_chi.dat
+
+     Output file name for the oscillator strength S  C60.plot_S.dat
+
+     chi_i_j: dipole polarizability tensor  in units of e^2*a_0^2/energy
+
+     S: oscillator strength in units of 1/energy
+
+     S(\hbar \omega) = 2m/( 3 \pi e^2 \hbar)  \omega sum_j chi_j_j
+
+     S(\hbar \omega) satisfies the f-sum rule:  \int_0^\infty dE S(E) = N_el 
+
+     Functions are reported in \hbar.\omega  Energy unit is (eV)
+
+     TDDFPT_PP    :      1.26s CPU      1.27s WALL
+
+
+   This run was terminated on:  20:14:14  31Aug2024            
+
+=------------------------------------------------------------------------------=
+   JOB DONE.
+=------------------------------------------------------------------------------=

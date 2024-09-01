@@ -1,0 +1,10 @@
+ &lr_input
+   prefix = 'C60',
+   outdir = './tempdir/',
+   restart_step = 250,
+   restart = .false.
+ /
+ &lr_control
+   itermax = 5000,
+   ipol = 4
+ /

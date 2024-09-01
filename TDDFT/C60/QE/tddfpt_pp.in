@@ -1,0 +1,13 @@
+ &lr_input
+   prefix = 'C60',
+   outdir = './tempdir/',
+   itermax0 = 5000,
+   itermax  = 10000,
+   extrapolation = "osc",
+   units = 1,
+   epsil = 0.005,
+   start = 0.00,
+   end   = 9.0,
+   increment = 0.01,
+   ipol = 4
+ /
