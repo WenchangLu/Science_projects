@@ -17,9 +17,9 @@ else:
     exit(0)
 
 
-rho_iso = 1.0e-4
-xcells = 1
-ycells = 1
+rho_iso = 5.0e-4
+xcells = 2
+ycells = 2
 
 rho_data_lines = [s for s in rho_data_lines if '#' not in s]
 num_atoms = int(rho_data_lines[0].split()[0])
@@ -90,6 +90,7 @@ else:
  
 #color_map = st.sidebar.radio("color map", ["hot", "inferno", "Greys_r"])
 color_map = "hot"
+color_map = "inferno"
 
 #spline_type = col3.checkbox("spline interpolation for image", False)
 X = np.ndarray([nx *xcells, ny *ycells], dtype = float)

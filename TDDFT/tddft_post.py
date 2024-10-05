@@ -26,9 +26,9 @@ one_direction = 1
 
 
 # maximum steps to be postprocesing
-n_data_max = 5000
+n_data_max = 1000
 #interpolation of energy points
-ndup = 4
+ndup = 1
 
 # nsmooth = 2: no smooth
 nsmooth = 2
