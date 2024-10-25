@@ -20,7 +20,7 @@ else:
     exit(0)
 
 
-rho_iso = 1.0e-6
+rho_iso = 1.0e-8
 xcells = 2
 ycells = 2
 
