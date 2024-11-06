@@ -82,8 +82,11 @@ if STM_mode == "constant height":
 
     rho_xy = rho_3d[:,:, z_plane]
 else:
-    rho_iso_min = float(max(rho_3d[:,:, iz_end].reshape(nx*ny)))
-    print("rho_isosurface maximum", rho_iso_min)
+    rho_min = float(min(rho_3d[:,:, iz_end].reshape(nx*ny)))
+    rho_max = float(max(rho_3d[:,:, iz_end].reshape(nx*ny)))
+    print("rho_max min", rho_max,rho_min)
+    rho_iso = rho_max*2.0
+
     print("isosurface: ", rho_iso)
     #print(rho_iso, iz_end)
     for ix in range(nx):
