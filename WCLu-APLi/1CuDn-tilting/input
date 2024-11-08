@@ -1,7 +1,7 @@
 description="Cu111-vac15
 "  
 #******** REAL SPACE GRID ********   
-wavefunction_grid="192 120 192"  
+wavefunction_grid="152 96 152"  
 potential_grid_refinement="2"  
   
 #******* CONTROL OPTIONS *******  
@@ -9,6 +9,8 @@ start_mode          ="LCAO Start"
 calculation_mode    ="Quench Electrons  "  
 kohn_sham_solver    ="davidson"  
 subdiag_driver      ="auto"  
+charge_density_mixing = "0.2"
+
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
 cube_rho = "True"  
   
