@@ -85,7 +85,7 @@ else:
     rho_min = float(min(rho_3d[:,:, iz_end].reshape(nx*ny)))
     rho_max = float(max(rho_3d[:,:, iz_end].reshape(nx*ny)))
     print("rho_max min", rho_max,rho_min)
-    rho_iso = rho_max*2.0
+    rho_iso = rho_max*1000.0
 
     print("isosurface: ", rho_iso)
     #print(rho_iso, iz_end)
@@ -129,6 +129,9 @@ cax = fig.add_axes([ax.get_position().x1+0.01,ax.get_position().y0,0.02,ax.get_p
 plt.colorbar(pos, cax=cax)
 
 
-fn=sys.argv[1].replace('cube', 'png')
+if len(sys.argv) > 3:
+    fn = sys.argv[3]
+else:
+    fn=sys.argv[1].replace('cube', 'png')
 plt.savefig(fn, format='png', dpi =600)
 
