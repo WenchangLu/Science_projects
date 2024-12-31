@@ -13,7 +13,7 @@ subdiag_driver      ="auto"
 cube_rho = "True"  
   
 #********* K POINT SETUP *********  
-kpoint_mesh = "32 32 1"  
+kpoint_mesh = "64 64 1"  
 kpoint_is_shift = "1 1 0"  
 charge_density_mixing = "0.20000000"
 
