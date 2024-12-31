@@ -14,7 +14,7 @@ cube_rho = "True"
   
 #********* K POINT SETUP *********  
 kpoint_mesh = "64 64 1"  
-kpoint_is_shift = "1 1 0"  
+kpoint_is_shift = "0 0 0"  
 charge_density_mixing = "0.20000000"
 
 kpoint_distribution = "8"
