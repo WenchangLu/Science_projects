@@ -17,7 +17,7 @@ kpoint_mesh = "64 64 1"
 kpoint_is_shift = "0 0 0"  
 charge_density_mixing = "0.20000000"
 electric_field = "0 0 0.005"
-system_charge = "-0.030"
+system_charge = "-0.040"
 #dos_method = "Gaussian"
 #dos_broading = "0.10000000"
 
