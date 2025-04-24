@@ -1,0 +1,41 @@
+start_mode="Restart From File"
+start_mode="LCAO Start"
+max_scf_steps = "100"
+tddft_steps = "20000"
+calculation_mode="TDDFT"
+unoccupied_states_per_kpoint = "100"
+kpoint_distribution = "32"
+tddft_mode = "vector potential"
+
+
+output_wave_function_file = "Waves1/wave.out"
+
+use_symmetry = "0"
+time_reversal = "false"
+
+#verbose = "true"
+pseudopotential = "H H.UPF"
+#exchange_correlation_type = "LDA"
+
+
+verbose = "false"
+kpoint_is_shift = "0 0 0 "
+kpoint_mesh = "110 1 1 "
+processor_grid = "1 4 8 "
+electric_field_tddft = "0.001 0 0 "
+
+wavefunction_grid ="12 64 64"
+
+lattice_units = "Angstrom"
+crds_units = "Angstrom"
+
+bravais_lattice_type = "Orthorhombic Primitive"
+a_length="1.905" b_length="10.0" c_length="10."
+
+
+ #  atomic coordinates  
+atoms=
+"
+H  -0.423342   5.0   5.0 
+H   0.423342   5.0   5.0
+"
