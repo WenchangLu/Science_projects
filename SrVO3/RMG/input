@@ -1,0 +1,48 @@
+description="SrVO3"
+#******** REAL SPACE GRID ********   
+wavefunction_grid="24 24 24"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons"
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "False"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh="8 8 8 "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "8"   
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+localize_localpp = "false"
+localize_projectors = "false"
+
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="None"  
+crds_units = "Angstrom"
+lattice_units = "Angstrom"
+lattice_vector="  
+3.8465099 0.0 0.0
+0.0 3.8465099 0.0
+0.0 0.0 3.8465099
+"  
+atomic_coordinate_type = "Cell Relative"  
+atoms="  
+ Sr   0.00000000000000   0.00000000000000   0.00000000000000
+  V   0.50000000000000   0.50000000000000   0.50000000000000
+  O   0.50000000000000   0.00000000000000   0.50000000000000
+  O   0.00000000000000   0.50000000000000   0.50000000000000
+  O   0.50000000000000   0.50000000000000   0.00000000000000
+"
