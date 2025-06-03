@@ -5,9 +5,15 @@ potential_grid_refinement="2"
   
 #******* CONTROL OPTIONS *******  
 start_mode          ="LCAO Start"  
-calculation_mode    ="Quench Electrons  "  
-kohn_sham_solver    ="davidson"  
-subdiag_driver      ="auto"  
+max_scf_steps = "100"
+tddft_steps = "5000"
+calculation_mode="TDDFT"
+unoccupied_states_per_kpoint = "432"
+tddft_mode = "vector potential"
+electric_field_tddft = "0.001 0.000  0.000 "
+tddft_time_step = "0.3"
+processor_grid= "4 4 4"
+
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
 cube_rho = "True"  
   
