@@ -6,7 +6,7 @@ potential_grid_refinement="2"
 
 start_mode          ="LCAO Start"
 max_scf_steps = "100"
-tddft_steps = "20"
+tddft_steps = "5000"
 calculation_mode="TDDFT"
 unoccupied_states_per_kpoint = "256"
 tddft_mode = "vector potential"
