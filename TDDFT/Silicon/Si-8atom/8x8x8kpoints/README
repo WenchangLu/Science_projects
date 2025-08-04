@@ -1,0 +1,3 @@
+input.00*, +nonlocal part, 64 unoccupied
+inout.01*, -nolocal part, 64 unoccupied 
+input.02*  +nonlocal part, 256 unoccupied
