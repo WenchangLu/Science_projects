@@ -1,4 +1,5 @@
-input.00*: without non-local pp contribution
-input.01*: + non-local pp contribution
-input.02*: - non-local pp contribution
+input.00*: without non-local pp contribution  64 unoccupied states
+input.01*: + non-local pp contribution  64 unoccupied states
+input.02*: - non-local pp contribution  64 unoccupied states
+input.04*: + non-local pp contribution  256 unoccupied states
 
