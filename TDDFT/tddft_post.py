@@ -22,7 +22,7 @@ else:
     
 energy_range = 10.0
 delta_e = 0.001
-gauss_sigma = 20
+gauss_sigma = 50
 #one_direction = 1, only count the dipole of efield direction 
 #              = 0: average 3 directions
 one_direction = 1
@@ -103,6 +103,10 @@ for i in range(len(fw)):
         num_epoint +=1
 spectrum_0.resize(num_epoint)
 spectrum_1 = gaussian_filter1d(spectrum_0, gauss_sigma)
-for i in range(num_epoint):
-    fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]))
-fout.write("&\n")
+
+if "current" in all_lines[2]:
+    for i in range(1,num_epoint):
+        fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]/float(i*delta_e)))
+if "dipole" in all_lines[2]:
+    for i in range(1,num_epoint):
+        fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]))
