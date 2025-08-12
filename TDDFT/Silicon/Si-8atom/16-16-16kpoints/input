@@ -15,6 +15,11 @@ tddft_mode = "vector potential"
 unoccupied_states_per_kpoint = "64"
 kpoint_distribution = "32"
 electric_field_tddft = "0.001 0 0 "
+interpolation_type = "prolong"
+
+
+BerryPhase = "true"
+BerryPhaseDirection = "0"
 
 use_symmetry = "1"
 time_reversal = "true"
@@ -36,9 +41,9 @@ bravais_lattice_type="Cubic Primitive"
 
 crds_units = "Bohr"  
 lattice_units = "Bohr"  
-a_length="     10.26221428"  
-b_length="     10.26221428"  
-c_length="     10.26221428"  
+a_length="     10.18"
+b_length="     10.18"
+c_length="     10.18"
 
 atomic_coordinate_type="Cell Relative"
 
