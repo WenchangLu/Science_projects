@@ -3,3 +3,5 @@ input.01*: + non-local pp contribution  64 unoccupied states
 input.02*: - non-local pp contribution  64 unoccupied states
 input.04*: + non-local pp contribution  256 unoccupied states
 
+input.11*: - non-local pp contribution  64 unoccupied states, 40000 steps
+
