@@ -7,11 +7,18 @@ import numpy
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
+dumping = 0.0
+energy_range = [2.0,10.0]
+delta_e = 0.001
+gauss_sigma = 20
+# maximum steps to be postprocesing
+n_data_max = 5000
+
 if len(sys.argv) >1:
     f = open(sys.argv[1], 'r')
 else:
     print("use: tddft_post.py dipole.dat spectra.dat")
-    print("input file: dipole.dat: dipole moments vs time from RMG")
+    print("input file: dipole.dat or *current.dat: dipole(current) moments vs time from RMG")
     print("output file: spectra.dat, the absorption intensity")
     exit()
 
@@ -20,16 +27,11 @@ if len(sys.argv) >2:
 else:
     fout = open('spectra.dat', 'w')
     
-energy_range = 10.0
-delta_e = 0.001
-gauss_sigma = 50
 #one_direction = 1, only count the dipole of efield direction 
 #              = 0: average 3 directions
 one_direction = 1
 
 
-# maximum steps to be postprocesing
-n_data_max = 20000
 #interpolation of energy points
 
 all_lines = f.readlines()
@@ -59,6 +61,7 @@ period = 2.0 * 3.1415926/delta_e * 27.2114
 
 n_data_tot = int(period/dt)
 print(n_data_tot)
+
 n_data = min(len(all_lines)-3, n_data_max)
 dipole = numpy.zeros(n_data_tot)
 
@@ -74,6 +77,8 @@ mean_dipole =  numpy.mean(dipole[0:n_data])
 
 for i in range(n_data):
     dipole[i] = (dipole[i] - mean_dipole) 
+for i in range(n_data):
+    dipole[i] = dipole[i] * math.exp(-float(i)/float(n_data) *dumping)
     
 
 fw = numpy.fft.rfft(dipole, n_data_tot)
@@ -87,6 +92,7 @@ x = numpy.linspace(wmin, wmax, num_freq)
 
 
 spectrum_0 = numpy.zeros(len(fw))
+spectrum_2 = numpy.zeros(len(fw))
 #  rotate spectrum as in NWCHEM
 num_epoint = 0
 for i in range(len(fw)):
@@ -97,16 +103,32 @@ for i in range(len(fw)):
     if angle > 3.1415927:
       print(angle)
       raise Exception ("atan2 out of range")
-    fw[i] = r * math.cos(angle) + r*math.sin(angle) * 1j
-    if x[i] < energy_range:
+    fw[i] = r * abs(math.cos(angle)) + abs(r*math.sin(angle)) * 1j
+    if x[i] >= energy_range[0] and x[i] <= energy_range[1]:
         spectrum_0[i] = fw[i].imag/efield
+        spectrum_2[i] = fw[i].real/efield
         num_epoint +=1
 spectrum_0.resize(num_epoint)
+spectrum_2.resize(num_epoint)
 spectrum_1 = gaussian_filter1d(spectrum_0, gauss_sigma)
+spectrum_3 = gaussian_filter1d(spectrum_2, gauss_sigma)
 
 if "current" in all_lines[2]:
     for i in range(1,num_epoint):
         fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]/float(i*delta_e)))
-if "dipole" in all_lines[2]:
+    #fout.write("&")
+    #for i in range(1,num_epoint):
+    #    if i* delta_e >2.0:
+    #        fout.write("%f  %f\n"%(i*delta_e, spectrum_3[i]/float(i*delta_e)))
+if "BeryPhase" in all_lines[2]:
+    #for i in range(1,num_epoint):
+    #    fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]))
+    #fout.write("&")
+    for i in range(1,num_epoint):
+        fout.write("%f  %f\n"%(i*delta_e, spectrum_3[i]))
+elif "dipole" in all_lines[2]:
     for i in range(1,num_epoint):
         fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]))
+    fout.write("&")
+    for i in range(1,num_epoint):
+        fout.write("%f  %f\n"%(i*delta_e, spectrum_3[i]))
