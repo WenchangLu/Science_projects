@@ -1,3 +1,5 @@
 input.00*, +nonlocal part, 64 unoccupied
 inout.01*, -nolocal part, 64 unoccupied 
 input.02*  +nonlocal part, 256 unoccupied
+input.09*         64 unoccupied states berry phase test
+input.10*  16 unoccupied states with new code
