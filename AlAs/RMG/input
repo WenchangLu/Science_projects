@@ -1,0 +1,45 @@
+description="alas.scf.efield.in"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="24 24 24"  
+potential_grid_refinement="2"  
+
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh = "3 3 7"  
+kpoint_is_shift = "0 0 0"  
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Cubic Primitive"  
+crds_units = "Bohr"  
+lattice_units = "Bohr"  
+a_length="     10.60000000"  
+b_length="     10.60000000"  
+c_length="     10.60000000"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+Al  -1.325000000000e+00 -1.325000000000e+00 -1.325000000000e+00  1 1 1   0.00   0.00   0.00  
+Al  3.975000000000e+00 3.975000000000e+00 -1.325000000000e+00  1 1 1   0.00   0.00   0.00  
+Al  3.975000000000e+00 -1.325000000000e+00 3.975000000000e+00  1 1 1   0.00   0.00   0.00  
+Al  -1.325000000000e+00 3.975000000000e+00 3.975000000000e+00  1 1 1   0.00   0.00   0.00  
+As  1.325000000000e+00 1.325000000000e+00 1.325000000000e+00  1 1 1   0.00   0.00   0.00  
+As  6.625000000000e+00 6.625000000000e+00 1.325000000000e+00  1 1 1   0.00   0.00   0.00  
+As  6.625000000000e+00 1.325000000000e+00 6.625000000000e+00  1 1 1   0.00   0.00   0.00  
+As  1.325000000000e+00 6.625000000000e+00 6.625000000000e+00  1 1 1   0.00   0.00   0.00  
+"  
