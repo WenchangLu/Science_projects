@@ -1,0 +1,50 @@
+description="beta-PVDF_known.cif"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="16 48 28"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "True"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh="7  2  4  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "1"   
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Orthorhombic Primitive"  
+crds_units = "Bohr"  
+lattice_units = "Bohr"  
+a_length="      4.79270444"  
+b_length="     14.61480151"  
+c_length="      7.98052119"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+C  4.808033508299e-16 4.808033508299e-16 7.852114604221e+00  1 1 1   0.00   0.00   0.00  
+C  6.839186273551e-16 7.307400753351e+00 3.861838048093e+00  1 1 1   0.00   0.00   0.00  
+C  2.396352218780e+00 8.619090670831e-17 1.407604327522e+00  1 1 1   0.00   0.00   0.00  
+C  2.396352218780e+00 7.307400753351e+00 5.397848961565e+00  1 1 1   0.00   0.00   0.00  
+F  2.396352218780e+00 1.250755173666e+01 3.066579111493e+00  1 1 1   0.00   0.00   0.00  
+F  2.396352218780e+00 5.200150983306e+00 7.056823745536e+00  1 1 1   0.00   0.00   0.00  
+F  2.396352218780e+00 2.107249770045e+00 3.066579111493e+00  1 1 1   0.00   0.00   0.00  
+F  2.396352218780e+00 9.414650523396e+00 7.056823745536e+00  1 1 1   0.00   0.00   0.00  
+H  1.200754411667e-15 1.295720533461e+01 6.652602366732e+00  1 1 1   0.00   0.00   0.00  
+H  5.089707052588e-16 5.649804581262e+00 2.662317830083e+00  1 1 1   0.00   0.00   0.00  
+H  5.088529020423e-16 1.657596172089e+00 6.652602366732e+00  1 1 1   0.00   0.00   0.00  
+H  7.119676899015e-16 8.964996925440e+00 2.662317830083e+00  1 1 1   0.00   0.00   0.00  
+"  

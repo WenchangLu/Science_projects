@@ -1,0 +1,44 @@
+#======================================================================
+
+# CRYSTAL DATA
+
+#----------------------------------------------------------------------
+
+data_VESTA_phase_1
+
+
+_chemical_name_common                  'h4 c4 f4'
+_cell_length_a                         2.53619
+_cell_length_b                         7.73382
+_cell_length_c                         4.22311
+_cell_angle_alpha                      90
+_cell_angle_beta                       90
+_cell_angle_gamma                      90
+_space_group_name_H-M_alt              'P 1'
+_space_group_IT_number                 1
+
+loop_
+_space_group_symop_operation_xyz
+   'x, y, z'
+
+loop_
+   _atom_site_label
+   _atom_site_occupancy
+   _atom_site_fract_x
+   _atom_site_fract_y
+   _atom_site_fract_z
+   _atom_site_adp_type
+   _atom_site_B_iso_or_equiv
+   _atom_site_type_symbol
+   C1         1.0     0.000000      0.000000      0.983910     Biso  1.000000 C
+   C2         1.0     0.000000      0.500000      0.483908     Biso  1.000000 C
+   C3         1.0     0.500000      0.000000      0.176380     Biso  1.000000 C
+   C4         1.0     0.500000      0.500000      0.676378     Biso  1.000000 C
+   F5         1.0     0.500000      0.855814      0.384258     Biso  1.000000 F
+   F6         1.0     0.500000      0.355814      0.884256     Biso  1.000000 F
+   F7         1.0     0.500000      0.144186      0.384258     Biso  1.000000 F
+   F8         1.0     0.500000      0.644186      0.884256     Biso  1.000000 F
+   H9         1.0     0.000000      0.886581      0.833605     Biso  1.000000 H
+   H10        1.0     0.000000      0.386581      0.333602     Biso  1.000000 H
+   H11        1.0     0.000000      0.113419      0.833605     Biso  1.000000 H
+   H12        1.0     0.000000      0.613419      0.333602     Biso  1.000000 H
