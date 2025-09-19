@@ -1,0 +1,71 @@
+description="alas.scf.efield.in"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="48 48 48"  
+potential_grid_refinement="2"  
+write_pseudopotential_plots = "true"
+
+
+BerryPhase = "true"
+BerryPhaseCycle = "3"
+BerryPhaseDirection = "2"
+electric_field = "0 0 0.000707"
+max_scf_steps = "100"
+#kohn_sham_mg_levels = "1"
+
+
+localize_localpp = "false"
+localize_projectors = "false"
+
+use_symmetry = "0"
+time_reversal = "false"
+
+#verbose = "true"
+
+force_grad_order = "0"
+
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+kohn_sham_solver    ="multigrid"
+subdiag_driver      ="scalapack"
+subdiag_driver      ="auto"
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh = "3 3 7"  
+kpoint_is_shift = "0 0 0"  
+  
+#******* Pseudopotentials *******   
+#pseudopotential = "
+#Al  Al_ncpp_rmg_internal.upf
+#As  As_sg15_rmg_internal.upf 
+#"
+#internal_pseudo_type = "nc_accuracy"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Cubic Primitive"  
+crds_units = "Bohr"  
+lattice_units = "Bohr"  
+a_length="     10.60000000"  
+b_length="     10.60000000"  
+c_length="     10.60000000"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+Al 0 0  0.0
+Al 5.3 5.3 0
+Al 5.3 0 5.3
+Al 0 5.3 5.3
+As 2.65 2.65 2.65
+As 7.95 7.95 2.65
+As 7.95 2.65 7.95
+As 2.65 7.95 7.95
+"  
