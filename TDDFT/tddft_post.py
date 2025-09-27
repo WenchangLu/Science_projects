@@ -8,11 +8,11 @@ import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
 dumping = 0.0
-energy_range = [2.0,10.0]
+energy_range = [0.0,10.0]
 delta_e = 0.001
-gauss_sigma = 20
+gauss_sigma = 50
 # maximum steps to be postprocesing
-n_data_max = 5000
+n_data_max = 20000
 
 if len(sys.argv) >1:
     f = open(sys.argv[1], 'r')
@@ -80,6 +80,11 @@ for i in range(n_data):
 for i in range(n_data):
     dipole[i] = dipole[i] * math.exp(-float(i)/float(n_data) *dumping)
     
+if "current" in all_lines[2]:
+    dipole1 = dipole[0:n_data].cumsum()
+    x = numpy.linspace(0, 1, n_data)
+    linfit = numpy.poly1d(numpy.polyfit(x, dipole1, 1))
+    dipole[0:n_data] = dipole1 - linfit(x)
 
 fw = numpy.fft.rfft(dipole, n_data_tot)
   
@@ -104,7 +109,7 @@ for i in range(len(fw)):
       print(angle)
       raise Exception ("atan2 out of range")
     fw[i] = r * abs(math.cos(angle)) + abs(r*math.sin(angle)) * 1j
-    if x[i] >= energy_range[0] and x[i] <= energy_range[1]:
+    if x[i] <= energy_range[1]:
         spectrum_0[i] = fw[i].imag/efield
         spectrum_2[i] = fw[i].real/efield
         num_epoint +=1
@@ -115,7 +120,9 @@ spectrum_3 = gaussian_filter1d(spectrum_2, gauss_sigma)
 
 if "current" in all_lines[2]:
     for i in range(1,num_epoint):
-        fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]/float(i*delta_e)))
+        if i*delta_e >= energy_range[0]:
+            #fout.write("%f  %f\n"%(i*delta_e, spectrum_1[i]/float(i*delta_e)))
+            fout.write("%f  %f\n"%(i*delta_e, spectrum_3[i]))
     #fout.write("&")
     #for i in range(1,num_epoint):
     #    if i* delta_e >2.0:
