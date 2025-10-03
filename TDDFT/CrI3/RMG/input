@@ -6,13 +6,25 @@ potential_grid_refinement="2"
   
 #******* CONTROL OPTIONS *******  
 start_mode          ="LCAO Start"  
+calculation_mode    ="TDDFT"
 calculation_mode    ="Quench Electrons  "  
 kohn_sham_solver    ="davidson"  
 kohn_sham_solver    ="multigrid"
 subdiag_driver      ="auto"  
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
-verbose = "True"  
+#verbose = "True"  
 use_rmm_diis = "true"
+
+subdiag_driver = "scalapack"
+tddft_steps = "10000"  
+tddft_time_step = "0.200000"   
+#electric field in unit of Hatree/bohr  
+tddft_mode = "vector potential"
+electric_field_tddft = "0.001 0 0"  
+unoccupied_states_per_kpoint = "64" 
+interpolation_type = "prolong"
+restart_tddft = "false"  
+tddft_noscf = "true"  
 
 #unoccupied_states_per_kpoint = "200"
 
@@ -20,7 +32,8 @@ use_rmm_diis = "true"
 #********* K POINT SETUP *********  
 kpoint_mesh="12 12  1  "  
 kpoint_is_shift="0 0 0"   
-#kpoint_distribution = "1"   
+kpoint_distribution = "10"   
+processor_grid = "2 2 4 "
   
 #******* Pseudopotentials *******   
 internal_pseudo_type = "sg15"  
@@ -43,7 +56,7 @@ ldau_mixing_type = "Linear"
 ldaU_radius = "9.000000"  
 ldau_mixing = "1.000000"  
   
-charge_density_mixing = "0.50000000"
+charge_density_mixing = "0.10000000"
 spin_polarization = "True"  
 AFM = "False"  
 #****  LATTICE and ATOMS  ****   
@@ -66,3 +79,4 @@ I  4.718046631241e+00 1.129257123408e-01 1.309831248437e+01  1 1 1   0.00   0.00
 I  4.522590802477e+00 4.029485759244e+00 1.309831248437e+01  1 1 1   0.00   0.00   0.00  
 I  1.228478220237e+00 1.901936023609e+00 1.309831248437e+01  1 1 1   0.00   0.00   0.00  
 "  
+
