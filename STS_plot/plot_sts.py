@@ -23,13 +23,13 @@ pos_end = float(sts_data_lines[0].split()[2])
 delta_d = (pos_end - pos_start)/float(num_points-1)
 E_points = int(sts_data_lines[1].split()[0])
 E_min = float(sts_data_lines[1].split()[1])
-E_max = float(sts_data_lines[1].split()[1])
+E_max = float(sts_data_lines[1].split()[2])
 delta_e = (E_max - E_min)/float(E_points -1)
 
 vol_data = ''.join(sts_data_lines[2:]).split()
 sts_1d = np.array(vol_data, dtype= float)
 
-sts_2d = sts_1d.reshape(num_points,E_points)
+sts_2d = sts_1d.reshape(num_points, E_points)
 
 #color_map = st.sidebar.radio("color map", ["hot", "inferno", "Greys_r"])
 color_map = "hot"
@@ -46,9 +46,10 @@ for j in range(num_points):
 fig, ax = plt.subplots(figsize=(15,15))
 
     #pos = ax.imshow(rho_ext, cmap =color_map, x_ax = X, y_ax = Y)
-pos = ax.pcolormesh(X, Y, sts_2d, cmap =color_map)
-#ax.set_aspect((ymax-ymin)/(xmax-xmin))
-ax.set_aspect("equal")
+pos = ax.pcolormesh(Y.T, X.T, sts_2d.T, cmap =color_map)
+#ax.set_aspect((pos_end-pos_start)/(E_max-E_min))
+ax.set_aspect((E_max-E_min)/(pos_end-pos_start))
+#ax.set_aspect("equal")
 ax.set_xlabel('X($\mathrm{\AA}$)')
 ax.set_ylabel('Y($\mathrm{eV}$)')
 
