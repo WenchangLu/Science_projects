@@ -13,7 +13,7 @@ subdiag_driver      ="auto"
 LOPTICS = "True"  
   
 #********* K POINT SETUP *********  
-kpoint_mesh="14  14  1  "  
+kpoint_mesh="32  32  1  "  
 kpoint_is_shift="0 0 0"   
 #kpoint_distribution = "1"   
   
