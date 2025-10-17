@@ -1,0 +1,44 @@
+description="Mo S                                    
+"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="16 16 112"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "True"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh="24 24  1  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "1"   
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="None"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+lattice_vector="  
+ 3.161000000000e+00  0.000000000000e+00  0.000000000000e+00   
+ -1.580500000000e+00  2.737506300000e+00  0.000000000000e+00   
+ 0.000000000000e+00  0.000000000000e+00  2.200000000000e+01   
+"  
+atomic_coordinate_type = "Cell Relative"  
+atoms="  
+Mo  3.333333335160e-01 6.666666670320e-01 5.000000000000e-01  1 1 1   0.00   0.00   0.00  
+S  6.666666666667e-01 3.333333333333e-01 4.283957737999e-01  1 1 1   0.00   0.00   0.00  
+S  6.666666666667e-01 3.333333333333e-01 5.716042262001e-01  1 1 1   0.00   0.00   0.00  
+"  
