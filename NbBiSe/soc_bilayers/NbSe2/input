@@ -1,34 +1,43 @@
-  
-#******* CONTROL OPTIONS *******  
-start_mode          ="LCAO Start"  
-calculation_mode    ="Quench Electrons  "  
-kohn_sham_solver    ="davidson"  
-subdiag_driver      ="auto"  
-#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
-  
+calculation_mode = "Quench Electrons"
+spinorbit = "True"
+ecutwfc = "200"
+preconditioner_threshold = "1.0e-5"
+cell_relax = "False"
+non_local_block_size = "4000"
+charge_density_mixing = "0.1"
+charge_mixing_type = "Broyden"
+description = "Example parameters for high-throughput bulk relaxation of a vdW material"
+dipole_moment = "True"
+dos_broading = "0.05"
+dos_method = "Gaussian"
+energy_convergence_criterion = "1.008e-08"
+energy_output_units = "Hartrees"
+kohn_sham_mucycles = "3"
+kohn_sham_solver = "multigrid"
+localize_projectors = "True"
+max_md_steps = "100"
+max_scf_steps = "100"
+rms_convergence_criterion = "1.008e-05"
+scalapack_block_factor = "64"
+start_mode = "LCAO Start"
+start_mode="Restart From File"
+state_block_size = "64"
+#stress = "True"
+subdiag_driver = "scalapack"
+use_async_allreduce = "False"
+vdw_corr = "DFT-D3"
+write_data_period = "25"
+
 #********* K POINT SETUP *********  
 kpoint_mesh="6 6  1  "  
 kpoint_is_shift="0 0 0"   
 kpoint_distribution = "4"   
-
-write_pseudopotential_plots ="False"  
-  
-#*****Exchange Correlation ******  
-exchange_correlation_type="AUTO_XC"  
-#AUTO_XC: XC will be determined from pseudopotential  
   
 description="Nb2 Se4
 "  
 #******** REAL SPACE GRID ********   
 wavefunction_grid="24 24 128"  
 potential_grid_refinement="2"  
-  
-#******* CONTROL OPTIONS *******  
-start_mode          ="LCAO Start"  
-calculation_mode    ="Quench Electrons  "  
-kohn_sham_solver    ="davidson"  
-subdiag_driver      ="auto"  
-#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
   
 #******* Pseudopotentials *******   
 pseudo_dir = "./"  
