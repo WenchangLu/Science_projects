@@ -1,4 +1,3 @@
-potential_grid_refinement="2"  
   
 #******* CONTROL OPTIONS *******  
 start_mode          ="LCAO Start"  
@@ -30,11 +29,6 @@ calculation_mode    ="Quench Electrons  "
 kohn_sham_solver    ="davidson"  
 subdiag_driver      ="auto"  
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
-  
-#********* K POINT SETUP *********  
-kpoint_mesh="6  6 1 "  
-kpoint_is_shift="0 0 0"   
-kpoint_distribution = "4"   
   
 #******* Pseudopotentials *******   
 pseudo_dir = "./"  

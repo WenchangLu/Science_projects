@@ -9,7 +9,7 @@ start_mode          ="LCAO Start"
 calculation_mode    ="TDDFT "
 #tddft_noscf = "true"
 calculation_mode    ="Quench Electrons  "  
-kohn_sham_solver    ="multigrid"  
+#kohn_sham_solver    ="multigrid"  
 kohn_sham_solver    ="davidson"  
 subdiag_driver      ="scalapack"  
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
