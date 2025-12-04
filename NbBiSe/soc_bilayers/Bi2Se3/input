@@ -1,0 +1,53 @@
+description="Bi4 Se6
+"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="28 28 172"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+cube_rho = "True"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh="6 6  1  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "1"   
+  
+#******* Pseudopotentials *******   
+pseudo_dir = "./"  
+pseudopotential = "  
+Bi   Bi.upf  
+Se   Se.upf  
+"  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="None"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+lattice_vector="  
+ 4.170827838294e+00  0.000000000000e+00  0.000000000000e+00   
+ -2.085413919147e+00  3.612042862922e+00  0.000000000000e+00   
+ 0.000000000000e+00  0.000000000000e+00  2.727883730074e+01   
+"  
+atomic_coordinate_type = "Cell Relative"  
+atoms="  
+Bi  8.072706028933e-01 9.833231329476e-01 2.434658450239e-01  1 1 1   0.00   0.00   0.00  
+Bi  1.310604996332e-01 6.475161289722e-01 3.896100140117e-01  1 1 1   0.00   0.00   0.00  
+Bi  1.177229432200e-01 6.293655647210e-01 6.110812803906e-01  1 1 1   0.00   0.00   0.00  
+Bi  4.476877021802e-01 2.986099356945e-01 7.566784104198e-01  1 1 1   0.00   0.00   0.00  
+Se  1.421594267720e-01 6.482007549017e-01 1.832922695669e-01  1 1 1   0.00   0.00   0.00  
+Se  4.689602279751e-01 3.185543924621e-01 3.166404920480e-01  1 1 1   0.00   0.00   0.00  
+Se  8.014972032910e-01 9.817803915366e-01 4.498396850358e-01  1 1 1   0.00   0.00   0.00  
+Se  4.484662642650e-01 2.997344386549e-01 5.512639642592e-01  1 1 1   0.00   0.00   0.00  
+Se  7.821800991187e-01 9.618678286007e-01 6.838892043658e-01  1 1 1   0.00   0.00   0.00  
+Se  1.186586698268e-01 6.281725859824e-01 8.167077304331e-01  1 1 1   0.00   0.00   0.00  
+"  
