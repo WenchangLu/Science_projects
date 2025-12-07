@@ -1,0 +1,71 @@
+calculation_mode = "Quench Electrons"
+spinorbit = "True"
+ecutwfc = "200"
+preconditioner_threshold = "1.0e-5"
+cell_relax = "False"
+non_local_block_size = "4000"
+charge_density_mixing = "0.1"
+charge_mixing_type = "Broyden"
+description = "Example parameters for high-throughput bulk relaxation of a vdW material"
+dipole_moment = "True"
+dos_broading = "0.05"
+dos_method = "Gaussian"
+energy_convergence_criterion = "1.008e-08"
+energy_output_units = "Hartrees"
+kohn_sham_mucycles = "3"
+kohn_sham_solver = "multigrid"
+localize_projectors = "True"
+max_md_steps = "100"
+max_scf_steps = "100"
+rms_convergence_criterion = "1.008e-05"
+scalapack_block_factor = "64"
+start_mode = "LCAO Start"
+start_mode="Restart From File"
+state_block_size = "64"
+#stress = "True"
+subdiag_driver = "scalapack"
+use_async_allreduce = "False"
+vdw_corr = "DFT-D3"
+write_data_period = "25"
+
+#********* K POINT SETUP *********  
+kpoint_mesh="6 6  1  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "4"   
+  
+description="Nb2 Se4
+"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="24 24 128"  
+potential_grid_refinement="2"  
+  
+#******* Pseudopotentials *******   
+pseudo_dir = "./"  
+pseudopotential = "  
+Nb   Nb.upf  
+Se   Se.upf  
+"  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="None"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+lattice_vector="  
+ 3.463570781947e+00  0.000000000000e+00  0.000000000000e+00   
+ -1.731785390973e+00  2.999540284779e+00  0.000000000000e+00   
+ 0.000000000000e+00  0.000000000000e+00  1.951046802998e+01   
+"  
+atomic_coordinate_type = "Cell Relative"  
+atoms="  
+Nb  7.095458407953e-01 7.948292916263e-01 6.575101585072e-01  1 1 1   0.00   0.00   0.00  
+Nb  7.127983921414e-01 7.967393320918e-01 3.424873597626e-01  1 1 1   0.00   0.00   0.00  
+Se  3.795826053614e-01 1.300044828359e-01 2.562726835828e-01  1 1 1   0.00   0.00   0.00  
+Se  4.291712372771e-02 4.614383061808e-01 5.712845138935e-01  1 1 1   0.00   0.00   0.00  
+Se  3.792387624309e-01 1.299213010649e-01 4.287153721910e-01  1 1 1   0.00   0.00   0.00  
+Se  4.260106053976e-02 4.614158479847e-01 7.437273164172e-01  1 1 1   0.00   0.00   0.00  
+"  

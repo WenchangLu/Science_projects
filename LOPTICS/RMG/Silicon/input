@@ -6,18 +6,31 @@ potential_grid_refinement="2"
   
 #******* CONTROL OPTIONS *******  
 start_mode          ="LCAO Start"  
+start_mode          ="Restart From File"
 calculation_mode    ="Quench Electrons  "  
 kohn_sham_solver    ="davidson"  
 subdiag_driver      ="auto"  
 #auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
-cube_rho = "True"  
+LOPTICS = "true"
+Emax = "50.0"
+E_POINTS = "5001"
+unoccupied_states_per_kpoint = "32"
+
+occupations_type = "Fixed"
+
+
   
 #********* K POINT SETUP *********  
 kpoint_mesh = "16 16 16"  
 kpoint_is_shift = "0 0 0"  
+kpoint_distribution = "32"
+use_symmetry = "1"
+time_reversal = "true"
+
+
   
 #******* Pseudopotentials *******   
-internal_pseudo_type = "sg15"  
+internal_pseudo_type = "nc_accuracy"
 #use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
 #those pseudopotentials are built in with RMG  
 write_pseudopotential_plots ="False"  
@@ -37,12 +50,12 @@ lattice_vector="
 "  
 atomic_coordinate_type = "Cell Relative"  
 atoms="  
-Si  0.000000000000e+00 0.000000000000e+00 0.000000000000e+00  1 1 1   0.00   0.00   0.00  
-Si  5.000000000000e-01 5.000000000000e-01 0.000000000000e+00  1 1 1   0.00   0.00   0.00  
-Si  5.000000000000e-01 0.000000000000e+00 5.000000000000e-01  1 1 1   0.00   0.00   0.00  
-Si  0.000000000000e+00 5.000000000000e-01 5.000000000000e-01  1 1 1   0.00   0.00   0.00  
-Si  2.500000000000e-01 2.500000000000e-01 2.500000000000e-01  1 1 1   0.00   0.00   0.00  
-Si  7.500000000000e-01 7.500000000000e-01 2.500000000000e-01  1 1 1   0.00   0.00   0.00  
-Si  7.500000000000e-01 2.500000000000e-01 7.500000000000e-01  1 1 1   0.00   0.00   0.00  
-Si  2.500000000000e-01 7.500000000000e-01 7.500000000000e-01  1 1 1   0.00   0.00   0.00  
+Si 0.125000 0.125000 0.125000
+Si 0.625000 0.625000 0.125000
+Si 0.625000 0.125000 0.625000
+Si 0.125000 0.625000 0.625000
+Si 0.375000 0.375000 0.375000
+Si 0.875000 0.875000 0.375000
+Si 0.875000 0.375000 0.875000
+Si 0.375000 0.875000 0.875000
 "  
