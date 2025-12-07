@@ -24,7 +24,7 @@ electric_field_tddft = "0.001 0 0"
 unoccupied_states_per_kpoint = "64" 
 interpolation_type = "prolong"
 restart_tddft = "false"  
-tddft_noscf = "true"  
+#tddft_noscf = "true"  
 
 #unoccupied_states_per_kpoint = "200"
 
