@@ -6,15 +6,34 @@ potential_grid_refinement="2"
 
 start_mode          ="LCAO Start"
 start_mode          ="Restart From File"
-tddft_steps = "20000"
+tddft_steps = "10"
 calculation_mode="TDDFT"
+#tddft_noscf = "true"
+
+#spin_polarization = "true"
+
+
+kohn_sham_solver    ="multigrid"
 kohn_sham_solver    ="davidson"
-subdiag_driver      ="auto"
+subdiag_driver = "scalapack"
 max_scf_steps = "100"
 tddft_mode = "vector potential"
-unoccupied_states_per_kpoint = "64"
-kpoint_distribution = "18"
+unoccupied_states_per_kpoint = "16"
+kpoint_distribution = "32"
 electric_field_tddft = "0.001 0 0 "
+BerryPhase = "false"
+BerryPhaseDirection = "0"
+tddft_time_step = "0.20000000"
+
+output_tddft_file = "Waves/wave_tddft.out"
+input_tddft_file = "Waves/wave_tddft.out"
+input_wave_function_file = "Waves/wave.out"
+output_wave_function_file = "Waves/wave.out"
+
+
+scalapack_block_factor = "8"
+state_block_size = "8"
+
 
 use_symmetry = "1"
 time_reversal = "true"
@@ -36,9 +55,9 @@ bravais_lattice_type="Cubic Primitive"
 
 crds_units = "Bohr"  
 lattice_units = "Bohr"  
-a_length="     10.26221428"  
-b_length="     10.26221428"  
-c_length="     10.26221428"  
+a_length="     10.18"  
+b_length="     10.18"  
+c_length="     10.18"  
 
 atomic_coordinate_type="Cell Relative"
 
