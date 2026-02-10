@@ -1,0 +1,46 @@
+description="Al2O3 gamma cubic phase"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="24 20 48"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+  
+#********* K POINT SETUP *********  
+kpoint_mesh="5  6  2  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "1"   
+  
+#******* Pseudopotentials *******   
+internal_pseudo_type = "sg15"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Orthorhombic Primitive"  
+crds_units = "Bohr"  
+lattice_units = "Bohr"  
+a_length="      6.42676949"  
+b_length="      5.27139096"  
+c_length="     13.37207983"  
+atomic_coordinate_type = "Absolute"  
+atoms="  
+Al  1.343837501089e+00 2.559260309114e+00 8.718596048391e-01  1 1 1   0.00   0.00   0.00  
+O  1.289852637343e+00 2.454359629090e+00 7.890864306987e+00  1 1 1   0.00   0.00   0.00  
+Al  1.800780812076e+00 1.618317023477e-01 9.544990581812e+00  1 1 1   0.00   0.00   0.00  
+O  1.771217672406e+00 3.209749953078e+00 1.243603424080e+01  1 1 1   0.00   0.00   0.00  
+O  5.007096112378e+00 2.543446136246e+00 5.331448227751e+00  1 1 1   0.00   0.00   0.00  
+Al  2.882406117830e+00 5.156474633110e+00 6.177900880915e+00  1 1 1   0.00   0.00   0.00  
+O  1.553992863526e+00 5.207607125383e+00 3.333659501325e+00  1 1 1   0.00   0.00   0.00  
+O  5.055939560529e+00 2.950924657141e+00 1.049708266562e+00  1 1 1   0.00   0.00   0.00  
+Al  3.813645017437e+00 2.516034903275e+00 1.166847685863e+01  1 1 1   0.00   0.00   0.00  
+O  5.322650494508e+00 5.230274106494e+00 1.004911799136e+01  1 1 1   0.00   0.00   0.00  
+"  

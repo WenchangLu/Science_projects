@@ -16,8 +16,8 @@ else:
     print("need the stm cube file")  
     exit(0)
 
-E_range = [-2.0, 2.0]
-Epoints = 401
+E_range = [-4.0, 4.0]
+Epoints = 801
 num_grid = 448
 
 data_lines = [s for s in data_lines if '#' not in s]
@@ -40,18 +40,25 @@ color_map = "bwr"
 fig, ax = plt.subplots(figsize=(15,15))
 
 #pos = ax.pcolormesh(X2d, Y2d, Z2d, cmap =color_map)
-pos = ax.pcolormesh(X2d, Y2d, Z2d, cmap =color_map, vmax = 30)
+pos = ax.pcolormesh(X2d, Y2d, Z2d, cmap =color_map, vmax = 120)
 
 #ax.set_aspect((pos_end-pos_start)/(E_max-E_min))
 #ax.set_aspect((E_range[1]-E_range[0])/(pos_end-pos_start))
 #ax.set_aspect("equal")
-ax.set_ylabel('E(eV)')
-ax.set_xlabel('Z($\AA$)')
+#plt.xticks(fontsize=12) 
+#plt.yticks(fontsize=12) 
+
+# Or using the Axes object
+ax.tick_params(axis='both', which='major', labelsize=24)
+ax.set_ylabel('E(eV)', fontsize = 24)
+ax.set_xlabel('Z($\AA$)', fontsize = 24)
 #plt.xlim(20,40)
 
 cax = fig.add_axes([ax.get_position().x1+0.01,ax.get_position().y0,0.02,ax.get_position().height])
 
-plt.colorbar(pos, cax=cax)
+cbar = fig.colorbar(pos, cax=cax)
+cbar.ax.tick_params(labelsize=24) 
+cbar.set_label("DOS(arbitrary units)", fontsize = 24)
 
 
 fn='pdos.png'

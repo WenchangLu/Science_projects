@@ -49,17 +49,26 @@ pos = ax.pcolormesh(X2d, Y2d, Z2d, cmap =color_map, vmax = 30)
 #plt.yticks(fontsize=12) 
 
 # Or using the Axes object
-ax.tick_params(axis='both', which='major', labelsize=24)
-ax.set_ylabel('E(eV)', fontsize = 24)
-ax.set_xlabel('Z($\AA$)', fontsize = 24)
+ffsize = 36
+ax.tick_params(axis='both', which='major', labelsize=ffsize)
+ax.set_ylabel('E(eV)', fontsize = ffsize, fontweight="bold")
+ax.yaxis.set_ticks(np.arange(-2, 3, 1))
+ax.set_xlabel('Z($\AA$)', fontsize = ffsize, fontweight="bold")
 #plt.xlim(20,40)
 plt.ylim(-2,2)
+plt.tight_layout()
 
+for label in ax.get_xticklabels():
+    label.set_fontweight('bold')
+for label in ax.get_yticklabels():
+    label.set_fontweight('bold')
 cax = fig.add_axes([ax.get_position().x1+0.01,ax.get_position().y0,0.02,ax.get_position().height])
 
 cbar = fig.colorbar(pos, cax=cax)
-cbar.ax.tick_params(labelsize=24) 
-cbar.set_label("DOS(arbitrary units)", fontsize = 24)
+cbar.ax.tick_params(labelsize=ffsize) 
+cbar.set_label("DOS(arbitrary units)", fontsize = ffsize, fontweight="bold")
+for t in cbar.ax.get_yticklabels():
+    t.set_fontweight('bold')
 
 
 fn='pdos.png'
