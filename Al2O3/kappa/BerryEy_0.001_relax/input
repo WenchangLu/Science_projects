@@ -1,0 +1,89 @@
+description="8103788.cif"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="32 56 56"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+calculation_mode    ="Relax Structure"
+calculation_mode    ="Quench Electrons  "  
+kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+
+BerryPhase = "true"
+BerryPhaseCycle = "3"
+BerryPhaseDirection = "1"
+electric_field = "0 0.001 0.0"
+
+localize_localpp = "false"
+localize_projectors = "false"
+
+  
+relax_max_force = "0.00100000"
+#********* K POINT SETUP *********  
+kpoint_mesh="3  4  4  "  
+kpoint_is_shift="0 0 0"   
+kpoint_distribution = "4"   
+  
+#******* Pseudopotentials *******   
+#internal_pseudo_type = "sg15"  
+internal_pseudo_type = "nc_accuracy"  
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="AUTO_XC"  
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="Orthorhombic Primitive"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+a_length="4.87778253"
+b_length="8.38724734 "
+c_length="9.01545290"   
+atomic_coordinate_type = "Absolute"  
+atoms = "
+Al   1.53636687353   5.53747753908   3.40942007677
+Al   3.97525813916   7.04339347078   3.40942007677
+Al   3.34141565772   2.84976980085   7.91714652670
+Al  0.902524392096   1.34385386911   7.91714652670
+O   4.78451216940   2.77948806568   4.59412308990
+O   2.34562090378   1.41413560428   4.59412308990
+O 0.0932703618483   5.60775927424 0.0863966399843
+O   2.53216162748   6.97311173562 0.0863966399843
+O  0.758185947681   4.19176693066   2.46437989657
+O   3.19707721331 0.00185673930082   2.46437989657
+O   4.11959658357   4.19548040926   6.97210634653
+O   1.68070531795   8.38539060067   6.97210634653
+O  0.755290845028   7.03987335464   2.41314871770
+O   3.19418211065   5.54099765522   2.41314871770
+O   4.12249168623   1.34737398529   6.92087516762
+O   1.68360042060   2.84624968467   6.92087516762
+O   2.53993976377   4.29030412316   4.54260612595
+O  0.101048498143   8.29056688671   4.54260612595
+O   2.33784276748   4.09694321676 0.0348796760370
+O   4.77673403311 0.0966804531979 0.0348796760370
+Al  0.909752529894   7.10097855355   5.92359106444
+Al   3.34864379552   5.47989245631   5.92359106444
+Al   3.96803000136   1.28626878635   1.41586461454
+Al   1.52913873573   2.90735488361   1.41586461454
+Al   1.57209936198   2.91378136361   5.12968487494
+Al   4.01099062760   1.27984230635   5.12968487494
+Al   3.30568316928   5.47346597631  0.621958425025
+Al  0.866791903651   7.10740503355  0.621958425025
+O   2.33149877603   6.91624922930   4.48149168808
+O   4.77039004166   5.66462178056   4.48149168808
+O   2.54628375522   1.47099811060   8.98921813800
+O  0.107392489596   2.72262555936   8.98921813800
+O  0.759406082760   1.42235075470   2.19350689738
+O   3.19829734839   2.77127291526   2.19350689738
+O   4.11837644849   6.96489658518   6.70123334728
+O   1.67948518287   5.61597442468   6.70123334728
+Al   1.58968566954  0.258224719531   3.32059127301
+Al   4.02857693517   3.93539895042   3.32059127301
+Al   3.28809686171   8.12902262044   7.82831772294
+Al  0.849205596084   4.45184838950   7.82831772294
+"
