@@ -9,6 +9,7 @@ localize_projectors = "false"
 compressed_infile = "false"
 compressed_outfile = "false"
 
+davidson_2stage_ortho = "true"
 #test_energy = ""
 
 # Wavefunction grid
@@ -69,7 +70,7 @@ charge_mixing_type = "Broyden"
 charge_density_mixing = "0.5"
 kohn_sham_mucycles = "3"
 max_scf_steps="100"
-potential_acceleration_constant_step="1.0"
+potential_acceleration_constant_step="0.0"
 #write_data_period="10"
 
 # Criterion used to judge SCF convergency 
@@ -93,7 +94,7 @@ exchange_correlation_type="PBE"
 pseudopotential=
 "
 Ba   Ba.ccECP.AREP.upf
-Ti   Ti.ccECP.xml
+Ti   Ti.ccECP.UPF
 O    O.ccECP.xml
 "
 
