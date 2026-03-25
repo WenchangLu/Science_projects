@@ -1,4 +1,4 @@
-# Description of run.
+# Description of run hybrid GauPBE.
 description="Si bulk"
 test_energy = "-31.58006638"
 test_energy_tolerance = "5.0e-7"
