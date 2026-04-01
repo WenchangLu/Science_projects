@@ -7,13 +7,13 @@ import numpy
 import matplotlib.pyplot as plt
 from scipy.ndimage import gaussian_filter1d
 
-col_pick = [1,1,0] 
-dumping = 0.0
+col_pick = [1,0,0] 
+dumping = 0.
 energy_range = [0.0,20.0]
-delta_e = 0.001
-gauss_sigma = 40
+delta_e = 0.01
+gauss_sigma =10
 # maximum steps to be postprocesing
-n_data_max = 80000
+n_data_max = 5000
 
 if len(sys.argv) >1:
     f = open(sys.argv[1], 'r')
@@ -52,6 +52,9 @@ n_data_tot = int(period/dt)
 print(n_data_tot)
 
 n_data = min(len(all_lines)-3, n_data_max)
+#delta_e = delta_e * n_data_tot /n_data
+#print(delta_e)
+#n_data_tot = n_data
 
 num_freq = n_data_tot//2 +1
 spectrum_i = numpy.zeros(num_freq)
@@ -66,16 +69,21 @@ for ixyz in range(3):
           
     mean_dipole =  numpy.mean(dipole[0:n_data])
 
-    for i in range(n_data):
-        dipole[i] = (dipole[i] - mean_dipole) 
-    for i in range(n_data):
-        dipole[i] = dipole[i] * math.exp(-float(i)/float(n_data) *dumping)
+#    for i in range(n_data):
+#        dipole[i] = (dipole[i] - mean_dipole) 
         
     if "current" in all_lines[2]:
-        dipole1 = dipole[0:n_data].cumsum()
-        x = numpy.linspace(0, 1, n_data)
-        linfit = numpy.poly1d(numpy.polyfit(x, dipole1, 1))
-        dipole[0:n_data] = dipole1 - linfit(x)
+       dipole1 = dipole[0:n_data].cumsum()
+       x = numpy.linspace(0, 1, n_data)
+       linfit = numpy.poly1d(numpy.polyfit(x, dipole1, 1))
+       dipole[0:n_data] = dipole1 - linfit(x)
+
+    mean_dipole =  numpy.mean(dipole[0:n_data])
+    for i in range(n_data):
+        dipole[i] = (dipole[i] - mean_dipole) 
+
+    for i in range(n_data):
+        dipole[i] = dipole[i] * math.exp(-float(i)/float(n_data) *dumping)
 
     fw = numpy.fft.rfft(dipole, n_data_tot)
       
@@ -102,6 +110,7 @@ for ixyz in range(3):
             num_epoint +=1
 
 spectrum_r.resize(num_epoint)
+spectrum_i.resize(num_epoint)
     
 spectrum_rs = gaussian_filter1d(spectrum_r, gauss_sigma)
 for i in range(1,num_epoint):
