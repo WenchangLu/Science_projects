@@ -1,0 +1,78 @@
+# Description of run.
+description="NaCl Ehrenfest test "
+
+# Wavefunction grid
+wavefunction_grid="48 48 48"
+potential_grid_refinement = "2"
+
+# number of unoccupied states
+unoccupied_states_per_kpoint="24"
+preconditioner_threshold = "0.0001"
+
+# Units for bravais_lattice_type and atoms
+#crds_units=
+#"Bohr"
+#"Angstrom"
+
+bravais_lattice_type="Cubic Primitive"
+
+# Lattice constants 
+a_length="18.0"
+b_length="18.0"
+c_length="18.0"
+relax_max_force = "0.00050000"
+verbose = "true"
+
+md_randomize_velocity = "false"
+ionic_velocities = "
+ 0.0013 0.000   0.0
+ -0.000843 0.000  0.0
+"
+
+
+start_mode="LCAO Start"
+#start_mode="Restart From File"
+
+#calculation_mode="Quench Electrons"
+#calculation_mode="Relax Structure"
+
+subdiag_driver="scalapack"
+charge_mixing_type = "Broyden"
+charge_density_mixing = "0.7"
+kohn_sham_mucycles = "3"
+max_scf_steps="20"
+write_data_period="50"
+
+# Criterion used to judge SCF convergency 
+energy_convergence_criterion="1.0e-9"
+#rms_convergence_criterion = "1.0e-10"
+
+atomic_coordinate_type="Absolute"
+
+
+# List  atomic symbol, coordinates, and movable flag (1 == movable) 
+# symbol and coordinates are required, moveable is optional, default is 1
+atoms = "
+ Na      6.9706556   8.9999976   9.0000007  
+ Cl     11.4893444   9.0000024   8.9999993  
+"
+
+tddft_mode = "vector potential"
+
+tddft_steps = "20"
+tddft_energy = "true"
+max_md_steps = "2"
+calculation_mode="TDDFT CVE"
+#calculation_mode="Constant Volume And Energy"
+ionic_time_step = "2.0"
+#md_randomize_velocity="false"
+#tddft_noscf = "true"
+#tddft_tiledMM = "true"
+#tddft_floatprecision = "true"
+scalapack_block_factor = "8"
+
+#electric_field_tddft = "0.001 0 0 "
+electric_field_tddft = "0.0 0 0 "
+tddft_time_step = "0.1"
+
+
