@@ -1,0 +1,97 @@
+# Description of run.
+description="NaCl Ehrenfest test "
+
+exchange_correlation_type = "LDA"
+test_bond_length = "2.9"
+# Wavefunction grid
+wavefunction_grid="48 48 48"
+potential_grid_refinement = "2"
+
+#internal_pseudo_type = "nc_accuracy"
+kohn_sham_solver    ="multigrid"
+localize_localpp = "false"
+localize_projectors = "false"
+
+interpolation_type = "prolong"
+
+# number of unoccupied states
+unoccupied_states_per_kpoint="30"
+#unoccupied_states_per_kpoint="280"
+preconditioner_threshold = "0.0001"
+
+# Units for bravais_lattice_type and atoms
+#crds_units=
+#"Bohr"
+#"Angstrom"
+
+bravais_lattice_type="Cubic Primitive"
+
+# Lattice constants 
+a_length="18.0"
+b_length="18.0"
+c_length="18.0"
+relax_max_force = "0.00050000"
+#verbose = "true"
+
+md_randomize_velocity = "false"
+ionic_velocities = "
+ 0.001048 0.000   0.0
+ -0.0006794 0.000  0.0
+"
+
+compressed_infile = "false"
+compressed_outfile = "false"
+
+start_mode="LCAO Start"
+start_mode="Restart From File"
+
+#calculation_mode="Quench Electrons"
+#calculation_mode="Relax Structure"
+
+subdiag_driver="scalapack"
+charge_mixing_type = "Broyden"
+charge_density_mixing = "0.7"
+kohn_sham_mucycles = "3"
+max_scf_steps="30"
+write_data_period="50"
+
+# Criterion used to judge SCF convergency 
+energy_convergence_criterion="1.0e-9"
+#rms_convergence_criterion = "1.0e-10"
+
+atomic_coordinate_type="Absolute"
+
+
+# List  atomic symbol, coordinates, and movable flag (1 == movable) 
+# symbol and coordinates are required, moveable is optional, default is 1
+atoms = "
+ Na      6.9706556   8.9999976   9.0000007  
+ Cl     11.4893444   9.0000024   8.9999993  
+"
+
+#fast_density = "true"
+tddft_mode = "vector potential"
+tddft_start_state = "0"
+tddft_tiledMM = "true"
+
+
+
+tddft_steps = "10"
+tddft_energy = "true"
+max_md_steps = "3"
+calculation_mode="TDDFT CVE"
+#tddft_predictor = "true"
+#calculation_mode="Constant Volume And Energy"
+ionic_time_step = "2.0"
+#md_randomize_velocity="false"
+#tddft_noscf = "true"
+#tddft_tiledMM = "true"
+#tddft_floatprecision = "true"
+scalapack_block_factor = "8"
+
+#electric_field_tddft = "0.001 0 0 "
+electric_field_tddft = "0.0 0 0 "
+tddft_time_step = "0.2"
+
+
+
