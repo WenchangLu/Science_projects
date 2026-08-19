@@ -1,0 +1,91 @@
+description="MoS2
+"  
+#******** REAL SPACE GRID ********   
+wavefunction_grid="20 20 128"  
+potential_grid_refinement="2"  
+  
+#******* CONTROL OPTIONS *******  
+start_mode          ="LCAO Start"  
+#kohn_sham_solver    ="davidson"  
+subdiag_driver      ="auto"  
+#auto: if cuda available, use cusolver, otherwise use lapack for n<128 and scaplack for large system  
+#tddft_mode = "vector potential"
+tddft_mode = "EH pair"
+tddft_ehpair = "4 1 0 2"
+processor_grid = "2 2 8 "
+#tddft_noscf = "true"
+compressed_infile = "false"
+compressed_outfile = "false"
+md_temperature = "1.00000000"
+
+#cube_states_list = "29-36"
+
+#verbose = "true"
+
+omp_threads_per_node = "1"
+rmg_threads_per_node = "1"
+
+
+tddft_tiledMM = "true"
+tddft_steps = "10000"
+tddft_energy = "true"
+max_md_steps = "1000"
+calculation_mode="TDDFT"
+calculation_mode="TDDFT CVE"
+#tddft_predictor = "true"
+#calculation_mode="Constant Volume And Energy"
+ionic_time_step = "1.0"
+#md_randomize_velocity="false"
+#tddft_noscf = "true"
+#tddft_tiledMM = "true"
+#tddft_floatprecision = "true"
+#scalapack_block_factor = "8"
+
+#electric_field_tddft = "0.001 0 0 "
+electric_field_tddft = "0.0 0 0 "
+tddft_time_step = "0.2"
+
+use_symmetry = "0"
+time_reversal = "false"
+
+
+unoccupied_states_per_kpoint = "38"
+
+  
+#********* K POINT SETUP *********  
+kpoint_mesh = "3 3 1"  
+kpoint_is_shift = "0 0 0"  
+  
+#******* Pseudopotentials *******   
+pseudo_dir = "/home/luw/ONCVPSP/dojo_LDA"
+pseudopotential = "
+W W.upf
+S S.upf
+Mo Mo.upf
+"
+#use Optimized Norm-Conserving Vanderbilt (ONCV) pseudopotenitals  
+#those pseudopotentials are built in with RMG  
+write_pseudopotential_plots ="False"  
+  
+#*****Exchange Correlation ******  
+exchange_correlation_type="LDA"
+#AUTO_XC: XC will be determined from pseudopotential  
+  
+#****  LATTICE and ATOMS  ****   
+bravais_lattice_type="None"  
+crds_units = "Angstrom"  
+lattice_units = "Angstrom"  
+lattice_vector="  
+ 3.157000000000e+00  0.000000000000e+00  0.000000000000e+00   
+ -1.578500000000e+00  2.734042199747e+00  0.000000000000e+00   
+ 0.000000000000e+00  0.000000000000e+00  2.0e+01   
+"  
+atomic_coordinate_type = "Absolute"
+atoms="  
+W   1.57851702567  0.911337605637   2.79544379081
+S 6.16189500397e-06   1.82269118350   1.26654683813
+S 5.88004588448e-06   1.82269138741   4.32802354441
+Mo -1.65465004646e-05   1.82270435220   8.85601707201
+S   1.57849387194  0.911350959750   7.31284851863
+S   1.57849360695  0.911351110732   10.3959020023
+"  
